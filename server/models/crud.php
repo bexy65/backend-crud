@@ -13,17 +13,7 @@ class Task
     {
         $query = "SELECT * FROM " . $this->table;
         $result = $this->conn->query($query);
-
-        if ($result === false) {
-            return [];
-        }
-
-        $products = [];
-        while ($row = $result->fetch_assoc()) {
-            $products[] = $row;
-        }
-
-        return $products;
+        return $result->fetch_assoc();
     }
 
     public function getProduct($name)
